@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('layout');
-});
+Route::view('/', 'home');
+
+Route::get('movies', 'MoviesController@index');

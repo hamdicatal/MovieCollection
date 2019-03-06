@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+
+  <title>@yield('title', 'Movie Collection Home Page')</title>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
-
-
 
 <div class="container">
 
@@ -16,8 +16,7 @@
 
     <div class="card" style="margin-top: 20px">
         <div class="card-body">
-            <h4 class="card-title">Home Page</h4>
-            <p class="card-text">Welcome to Movie Collection home page!</p>
+            @yield('content')
         </div>
 
     </div>
