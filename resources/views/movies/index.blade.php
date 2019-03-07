@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <h4 class="card-title">Movies <a class="btn btn-success btn-sm" style="float:right" href="movies/create">New Movie</a></h4>
+    <h4 class="card-title">Movies <a class="btn btn-success btn-sm" style="float:right" href="movies/create"><i class="fa fa-plus" aria-hidden="true"></i> New Movie</a></h4>
     <p class="card-text">Show all movies, edit, add...</p>
 
     <table class="table">
@@ -26,7 +26,11 @@
                         <td>{{ $movie->year }}</td>
                         <td>{{ $movie->genre->name }}</td>
                         <td>{{ $movie->director }}</td>
-                        <td>Details - Edit - Delete</td>
+                        <td>
+                            Details <i class="fa fa-eye" aria-hidden="true"></i> /
+                            Edit <i class="fa fa-pencil-square-o" aria-hidden="true"></i> /
+                            Delete <i class="fa fa-times" aria-hidden="true"></i>
+                        </td>
                       </tr>
                 @endforeach
             </tbody>
