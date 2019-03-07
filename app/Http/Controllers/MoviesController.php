@@ -61,6 +61,15 @@ class MoviesController extends Controller
         return redirect('/movies');
     }
 
+    //for demo purpose
+    public function demo(){
+        $genres = Genre::all();
+        $casts = Cast::all();
+        $langs = Lang::all();
+
+        return view('movies/demo', compact('genres', 'casts', 'langs'));
+    }
+
     /**
      * Display the specified resource.
      *
