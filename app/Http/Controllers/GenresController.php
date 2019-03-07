@@ -71,7 +71,8 @@ class GenresController extends Controller
      */
     public function update(Request $request, Genre $genre)
     {
-        //
+        $genre->update($this->validateRequest());
+        return redirect('genres');
     }
 
     /**
@@ -82,6 +83,14 @@ class GenresController extends Controller
      */
     public function destroy(Genre $genre)
     {
-        //
+        $genre->delete();
+        return redirect('genres');
+    }
+
+    private function validateRequest()
+    {
+        return request()->validate([
+            'name' => 'required'
+        ]);
     }
 }

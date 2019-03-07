@@ -19,5 +19,7 @@ Route::post('movies', 'MoviesController@store');
 
 Route::get('genres', 'GenresController@index');
 Route::post('genres', 'GenresController@store');
+Route::patch('genres/{genre}', 'GenresController@update');
+Route::delete('genres/{genre}', 'GenresController@destroy');
 
 Route::get('movies/demo', 'MoviesController@demo');
