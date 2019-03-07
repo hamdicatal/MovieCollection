@@ -45,15 +45,20 @@ class MoviesController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request);
         $validate = $this->validateRequest();
-
         $movie = Movie::create($validate);
 
-        // !!!! burası kontrol edilecek. view'den array dönmesi lazım. !!!!
-        $movie->casts()->attach($request->casts);
-        $movie->langs()->attach($request->langs);
+        //dd($movie);
 
-        return redirect('movies');
+        $langs = Lang::find($request->langs);
+
+        $movie->langs()->attach($langs);
+
+        //$movie->casts()->attach($request->casts); // ??
+
+
+        return redirect('/movies');
     }
 
     /**
@@ -111,10 +116,12 @@ class MoviesController extends Controller
 
     private function validateRequest(){
         return request()->validate([
-            'name' => 'required',
-            'release_date' => 'required',
+            'title' => 'required',
+            'year' => 'required',
+            'director' => 'required',
             'genre_id' => 'required',
-            'media' => 'required'
+            'description' => 'required',
+            'poster' => 'required'
         ]);
     }
 }

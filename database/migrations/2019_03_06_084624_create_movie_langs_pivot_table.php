@@ -13,10 +13,10 @@ class CreateMovieLangsPivotTable extends Migration
      */
     public function up()
     {
-        Schema::create('movie_langs', function (Blueprint $table) {
+        Schema::create('lang_movie', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedInteger('movie_id');
-            $table->unsignedInteger('cast_id');
+            $table->unsignedInteger('lang_id');
             $table->timestamps();
         });
     }

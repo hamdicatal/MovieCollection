@@ -4,14 +4,15 @@
 
 @section('content')
 
-    <h4 class="card-title">Movies</h4>
+    <h4 class="card-title">Movies <a class="btn btn-success btn-sm" style="float:right" href="movies/create">New Movie</a></h4>
     <p class="card-text">Show all movies, edit, add...</p>
 
     <table class="table">
             <thead>
               <tr>
-                <th>Movie Name</th>
-                <th>Release Date</th>
+                <th>Poster</th>
+                <th>Title</th>
+                <th>Release Year</th>
                 <th>Genre</th>
                 <th>Director</th>
                 <th>Operations</th>
@@ -20,9 +21,10 @@
             <tbody>
                 @foreach ($movies as $movie)
                      <tr>
-                        <td>{{ $movie->name }} </td>
-                        <td>{{ $movie->release_date }}</td>
-                        <td>{{ $movie->genre }}</td>
+                         <td><img src="{{ $movie->poster }}" width="70px"></td>
+                        <td>{{ $movie->title }} </td>
+                        <td>{{ $movie->year }}</td>
+                        <td>{{ $movie->genre->name }}</td>
                         <td>{{ $movie->director }}</td>
                         <td>Details - Edit - Delete</td>
                       </tr>
