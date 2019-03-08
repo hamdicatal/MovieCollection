@@ -10,6 +10,7 @@
     <table class="table">
             <thead>
               <tr>
+                <th>ID</th>
                 <th>Poster</th>
                 <th>Title</th>
                 <th>Release Year</th>
@@ -21,7 +22,8 @@
             <tbody>
                 @foreach ($movies as $movie)
                      <tr>
-                         <td><img src="{{ $movie->poster }}" width="70px"></td>
+                        <td>{{ $movie->id }}</td>
+                        <td><img src="{{ $movie->poster }}" width="70px"></td>
                         <td>{{ $movie->title }} </td>
                         <td>{{ $movie->year }}</td>
                         <td>{{ $movie->genre->name }}</td>

@@ -45,18 +45,14 @@ class MoviesController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request);
         $validate = $this->validateRequest();
         $movie = Movie::create($validate);
 
-        //dd($movie);
-
         $langs = Lang::find($request->langs);
+        $casts = Cast::find($request->casts);
 
         $movie->langs()->attach($langs);
-
-        //$movie->casts()->attach($request->casts); // ??
-
+        $movie->casts()->attach($casts);
 
         return redirect('/movies');
     }
@@ -129,8 +125,7 @@ class MoviesController extends Controller
             'year' => 'required',
             'director' => 'required',
             'genre_id' => 'required',
-            'description' => 'required',
-            'poster' => 'required'
+            'description' => 'required'
         ]);
     }
 }

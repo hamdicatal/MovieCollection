@@ -1,0 +1,7 @@
+#allCasts {
+    position: absolute;
+}
+
+#allCasts li{
+    display: none;
+}

@@ -9,6 +9,10 @@ class Movie extends Model
     // for mass assignment
     protected $guarded = [];
 
+    protected $attributes = [
+        'poster' => 'posters/default.jpeg'
+    ];
+
     // for one to many relation with genre
     public function genre()
     {
