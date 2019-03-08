@@ -22,4 +22,14 @@ Route::post('genres', 'GenresController@store');
 Route::patch('genres/{genre}', 'GenresController@update');
 Route::delete('genres/{genre}', 'GenresController@destroy');
 
+Route::get('languages', 'LangsController@index');
+Route::post('languages', 'LangsController@store');
+Route::patch('languages/{lang}', 'LangsController@update');
+Route::delete('languages/{lang}', 'LangsController@destroy');
+
+Route::get('casts', 'CastsController@index');
+Route::post('casts', 'CastsController@store');
+Route::patch('casts/{cast}', 'CastsController@update');
+Route::delete('casts/{cast}', 'CastsController@destroy');
+
 Route::get('movies/demo', 'MoviesController@demo');

@@ -13,7 +13,7 @@ class CreateMovieCastPivotTable extends Migration
      */
     public function up()
     {
-        Schema::create('movie_cast', function (Blueprint $table) {
+        Schema::create('cast_movie', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedInteger('movie_id');
             $table->unsignedInteger('cast_id');
