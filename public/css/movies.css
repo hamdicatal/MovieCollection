@@ -5,3 +5,7 @@
 #allCasts li{
     display: none;
 }
+
+#allCasts li:hover {
+    cursor: pointer;
+}

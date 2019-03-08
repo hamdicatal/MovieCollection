@@ -9,6 +9,7 @@ class Movie extends Model
     // for mass assignment
     protected $guarded = [];
 
+    // for default values
     protected $attributes = [
         'poster' => 'posters/default.jpeg'
     ];

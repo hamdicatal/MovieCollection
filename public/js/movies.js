@@ -20,7 +20,6 @@ function searchCast() {
     li = ul.getElementsByTagName('li');
 
     for (i = 0; i < li.length; i++) {
-
         txt = li[i].innerText || li[i].innerText;
 
         if (txt.toUpperCase().indexOf(filter) > -1) {
@@ -33,7 +32,6 @@ function searchCast() {
     if (input.value.length < 1) {
         for (i = 0; i < li.length; i++) {
             li[i].style.display = "none";
-
         }
     }
 }
@@ -49,6 +47,9 @@ document.getElementById("allCasts").addEventListener("click", function (e) {
         allCasts.innerHTML += cast;
 
         e.target.parentElement.removeChild(e.target);
+
+        inputSearchCast.value = "";
+        searchCast();
     }
 });
 

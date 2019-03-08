@@ -23,15 +23,15 @@
                 @foreach ($movies as $movie)
                      <tr>
                         <td>{{ $movie->id }}</td>
-                        <td><img src="{{ $movie->poster }}" width="70px"></td>
+                        <td><img src="{{ URL::asset($movie->poster) }}" width="70px"></td>
                         <td>{{ $movie->title }} </td>
                         <td>{{ $movie->year }}</td>
                         <td>{{ $movie->genre->name }}</td>
                         <td>{{ $movie->director }}</td>
                         <td>
-                            Details <i class="fa fa-eye" aria-hidden="true"></i> /
-                            Edit <i class="fa fa-pencil-square-o" aria-hidden="true"></i> /
-                            Delete <i class="fa fa-times" aria-hidden="true"></i>
+                            <a href="movies/{{ $movie->id }}">Details <i class="fa fa-eye" aria-hidden="true"></i></a> /
+                            <a href="movies/{{ $movie->id }}/edit">Edit <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> /
+                            <a href="movies/{{ $movie->id }}">Delete <i class="fa fa-times" aria-hidden="true"></i></a>
                         </td>
                       </tr>
                 @endforeach

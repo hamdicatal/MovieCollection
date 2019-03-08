@@ -16,6 +16,10 @@ Route::view('/', 'home');
 Route::get('movies', 'MoviesController@index');
 Route::get('movies/create', 'MoviesController@create');
 Route::post('movies', 'MoviesController@store');
+Route::get('movies/{movie}', 'MoviesController@show');
+Route::delete('movies/{movie}', 'MoviesController@destroy');
+Route::get('movies/{movie}/edit', 'MoviesController@edit');
+Route::patch('movies/{movie}', 'MoviesController@update');
 
 Route::get('genres', 'GenresController@index');
 Route::post('genres', 'GenresController@store');

@@ -17,7 +17,7 @@ class CreateMoviesTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->string('year');
-            $table->unsignedInteger('genre_id');
+            $table->unsignedInteger('genre_id')->nullable();
             $table->string('director');
             $table->text('description');
             $table->string('poster');
