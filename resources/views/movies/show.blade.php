@@ -13,12 +13,11 @@
                 <i class="fa fa-trash" aria-hidden="true"></i> Delete Movie
             </a>
         </h4>
-        <p class="card-text"><strong>Genre:</strong> {{ $movie->genre->name }} <br>
+        <p class="card-text"><strong>Genre:</strong> {{ $movie->genre->name }}<br>
             <strong>Director:</strong> {{ $movie->director }} <br>
             <strong>Cast:</strong> {{ $movie->casts->implode('name', ', ') }}<br>
-            <strong>Languages:</strong> {{ $movie->langs->implode('name', ', ') }}</p>
-
-        <p class="card-text"><strong>Description:</strong> {{ $movie->description }}</p>
+            <strong>Languages:</strong> {{ $movie->langs->implode('name', ', ') }}<br>
+            <strong>Description:</strong> {{ $movie->description }}</p>
     </div>
 </div>
 

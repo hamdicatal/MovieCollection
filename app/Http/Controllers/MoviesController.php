@@ -78,15 +78,13 @@ class MoviesController extends Controller
 
     public function update(Request $request, Movie $movie)
     {
-        // SORUN VAR. POSTERİ GÜNCELLEMİYOR!!
         // upload and store movie poster
         if ($request->hasFile('poster')) {
+
             $imageName = request()->title.time().'.'.request()->poster->getClientOriginalExtension();
             request()->poster->move(public_path('posters'), $imageName);
             $movie->poster = 'posters/'.$imageName;
         }
-
-        //dd(request()->poster);
 
         $movie->update($this->validateRequest());
 
@@ -116,8 +114,7 @@ class MoviesController extends Controller
             'year' => 'required',
             'director' => 'required',
             'genre_id' => 'required',
-            'description' => 'required',
-            'poster' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
+            'description' => 'required'
         ]);
     }
 }
