@@ -19,11 +19,11 @@
             <tbody>
                 @foreach ($casts as $cast)
                 <tr>
-                    <td>{{ $cast->id }}</td>
-                    <td>{{ $cast->name }}</td>
-                    <td>{{ count($cast->movies) }}</td>
-                    <td>
-                        <a href="#" data-toggle="modal" data-target="#editModal-{{ $cast->id }}">Edit <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> /
+                    <td class="align-middle">{{ $cast->id }}</td>
+                    <td class="align-middle">{{ $cast->name }}</td>
+                    <td class="align-middle">{{ count($cast->movies) }}</td>
+                    <td class="align-middle">
+                        <a href="#" data-toggle="modal" data-target="#editModal-{{ $cast->id }}">Edit <i class="fa fa-pencil-square-o mr-2" aria-hidden="true"></i></a>
                         <a href="#" data-toggle="modal" data-target="#deleteModal-{{ $cast->id }}">Delete <i class="fa fa-times" aria-hidden="true"></i></a>
                     </td>
 

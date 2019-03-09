@@ -19,11 +19,11 @@
             <tbody>
                 @foreach ($genres as $genre)
                 <tr>
-                    <td>{{ $genre->id }}</td>
-                    <td>{{ $genre->name }}</td>
-                    <td>{{ count($genre->movies) }}</td>
-                    <td>
-                        <a href="#" data-toggle="modal" data-target="#editModal-{{ $genre->id }}">Edit <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> /
+                    <td class="align-middle">{{ $genre->id }}</td>
+                    <td class="align-middle">{{ $genre->name }}</td>
+                    <td class="align-middle">{{ count($genre->movies) }}</td>
+                    <td class="align-middle">
+                        <a href="#" data-toggle="modal" data-target="#editModal-{{ $genre->id }}">Edit <i class="fa fa-pencil-square-o mr-2" aria-hidden="true"></i></a>
                         <a href="#" data-toggle="modal" data-target="#deleteModal-{{ $genre->id }}">Delete <i class="fa fa-times" aria-hidden="true"></i></a>
                     </td>
 

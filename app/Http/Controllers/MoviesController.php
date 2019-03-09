@@ -51,15 +51,6 @@ class MoviesController extends Controller
         return redirect('/movies');
     }
 
-    //for demo purpose
-    public function demo(){
-        $genres = Genre::all();
-        $casts = Cast::all();
-        $langs = Lang::all();
-
-        return view('movies/demo', compact('genres', 'casts', 'langs'));
-    }
-
     public function show(Movie $movie)
     {
         return view('movies.show', compact('movie'));
@@ -112,6 +103,32 @@ class MoviesController extends Controller
         $movie->delete();
 
         return redirect('movies');
+    }
+
+    public function search(){
+        $movies = Movie::all();
+        $search = '';
+        return view('movies/search', compact('movies', 'search'));
+    }
+
+    public function find(Request $request){
+        $allMovies = Movie::all();
+        $filter = $request->filter;
+        $search = $request->search;
+
+        if($filter == 'title') {
+            $movies = Movie::where($filter, 'like', '%'.$search.'%')->get();
+        }
+
+        if($filter == 'cast') {
+            $movies = Cast::where('name', 'like', '%'.$search.'%')->get()->first()->movies;
+        }
+
+        if($filter == 'genre') {
+            $movies = Genre::where('name', 'like', '%'.$search.'%')->get()->first()->movies;
+        }
+
+        return view('movies/search', compact('movies', 'search'));
     }
 
     private function validateRequest(){

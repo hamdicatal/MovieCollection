@@ -23,7 +23,7 @@
                     <td>{{ $lang->name }}</td>
                     <td>{{ count($lang->movies) }}</td>
                     <td>
-                        <a href="#" data-toggle="modal" data-target="#editModal-{{ $lang->id }}">Edit <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> /
+                        <a href="#" data-toggle="modal" data-target="#editModal-{{ $lang->id }}">Edit <i class="fa fa-pencil-square-o mr-2" aria-hidden="true"></i></a>
                         <a href="#" data-toggle="modal" data-target="#deleteModal-{{ $lang->id }}">Delete <i class="fa fa-times" aria-hidden="true"></i></a>
                     </td>
 

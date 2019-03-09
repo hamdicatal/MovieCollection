@@ -65,3 +65,58 @@ document.getElementById("addedCast").addEventListener("click", function (e) {
     }
 });
 
+// for movies table ordering by year
+function sortTable(n) {
+    var orderArrow, table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    table = document.getElementById("movies");
+    orderArrow = document.getElementById("orderArrow");
+
+    if(orderArrow.classList.contains("fa-arrow-circle-left")) {
+        orderArrow.classList.remove("fa-arrow-circle-left");
+        orderArrow.classList.toggle("fa-arrow-circle-down");
+    }
+    else if(orderArrow.classList.contains("fa-arrow-circle-down")){
+        orderArrow.classList.remove("fa-arrow-circle-down");
+        orderArrow.classList.toggle("fa-arrow-circle-up");
+    }
+    else if(orderArrow.classList.contains("fa-arrow-circle-up")){
+        orderArrow.classList.remove("fa-arrow-circle-up");
+        orderArrow.classList.toggle("fa-arrow-circle-down");
+    }
+
+    switching = true;
+    dir = "asc"
+    while (switching) {
+      switching = false;
+      rows = table.rows;
+
+      for (i = 1; i < (rows.length - 1); i++) {
+        shouldSwitch = false;
+        x = rows[i].getElementsByTagName("TD")[n];
+        y = rows[i + 1].getElementsByTagName("TD")[n];
+
+        if (dir == "asc") {
+          if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+            shouldSwitch = true;
+            break;
+          }
+        } else if (dir == "desc") {
+          if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+            shouldSwitch = true;
+            break;
+          }
+        }
+      }
+
+      if (shouldSwitch) {
+        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+        switching = true;
+        switchcount ++;
+      } else {
+        if (switchcount == 0 && dir == "asc") {
+          dir = "desc";
+          switching = true;
+        }
+      }
+    }
+  }

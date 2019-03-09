@@ -20,6 +20,8 @@ Route::get('movies/{movie}', 'MoviesController@show');
 Route::delete('movies/{movie}', 'MoviesController@destroy');
 Route::get('movies/{movie}/edit', 'MoviesController@edit');
 Route::patch('movies/{movie}', 'MoviesController@update');
+Route::get('search', 'MoviesController@search');
+Route::post('search', 'MoviesController@find');
 
 Route::get('genres', 'GenresController@index');
 Route::post('genres', 'GenresController@store');
