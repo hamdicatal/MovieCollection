@@ -8,6 +8,7 @@ use App\Cast;
 use App\Lang;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class MoviesController extends Controller
 {
@@ -80,7 +81,12 @@ class MoviesController extends Controller
     {
         // upload and store movie poster
         if ($request->hasFile('poster')) {
+            // delete old poster image from disk
+            if(File::exists(public_path($movie->poster))) {
+                File::delete(public_path($movie->poster));
+            }
 
+            // save new image to disk
             $imageName = request()->title.time().'.'.request()->poster->getClientOriginalExtension();
             request()->poster->move(public_path('posters'), $imageName);
             $movie->poster = 'posters/'.$imageName;
