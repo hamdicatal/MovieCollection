@@ -112,7 +112,7 @@ class MoviesController extends Controller
     }
 
     public function find(Request $request){
-        $allMovies = Movie::all();
+        $movies = Movie::all();
         $filter = $request->filter;
         $search = $request->search;
 
@@ -121,11 +121,17 @@ class MoviesController extends Controller
         }
 
         if($filter == 'cast') {
-            $movies = Cast::where('name', 'like', '%'.$search.'%')->get()->first()->movies;
+            $casts = Cast::where('name', 'like', '%'.$search.'%')->get();
+
+            if(count($casts) > 0)   $movies = $casts->first()->movies;
+            else    $movies = [];
         }
 
         if($filter == 'genre') {
-            $movies = Genre::where('name', 'like', '%'.$search.'%')->get()->first()->movies;
+            $genres = Genre::where('name', 'like', '%'.$search.'%')->get();
+
+            if(count($genres) > 0)  $movies = $genres->first()->movies;
+            else   $movies = [];
         }
 
         return view('movies/search', compact('movies', 'search'));
