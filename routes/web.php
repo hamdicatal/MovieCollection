@@ -39,3 +39,7 @@ Route::patch('casts/{cast}', 'CastsController@update');
 Route::delete('casts/{cast}', 'CastsController@destroy');
 
 Route::get('movies/demo', 'MoviesController@demo');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
