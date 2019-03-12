@@ -123,14 +123,24 @@ class MoviesController extends Controller
         if($filter == 'cast') {
             $casts = Cast::where('name', 'like', '%'.$search.'%')->get();
 
-            if(count($casts) > 0)   $movies = $casts->first()->movies;
+            if(count($casts) > 0) {
+                foreach($casts as $cast) {
+                    $movies->merge($cast->movies);
+                }
+            }
+
             else    $movies = [];
         }
 
         if($filter == 'genre') {
             $genres = Genre::where('name', 'like', '%'.$search.'%')->get();
 
-            if(count($genres) > 0)  $movies = $genres->first()->movies;
+            if(count($genres) > 0) {
+                foreach($genres as $genre) {
+                    $movies->merge($genre->movies);
+                }
+            }
+
             else   $movies = [];
         }
 
