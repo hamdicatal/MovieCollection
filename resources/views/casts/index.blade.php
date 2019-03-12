@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'Genres')
+@section('title', 'Casts')
 @section('content')
 
 <h4 class="card-title">Casts</h4>
@@ -37,7 +37,7 @@
                                     <div class="modal-body">
                                         <p>Are you sure want to delete "{{ $cast->name }}"?</p>
 
-                                        <form action="/casts/{{ $cast->id }}" method="POST">
+                                        <form action="{{ route('casts.destroy', ['cast' => $cast]) }}" method="POST">
                                             @method('DELETE')
                                                 <label for="name">ID: {{ $cast->id }}</label><br>
                                                 <label for="name">Name: {{ $cast->name }}</label>
@@ -59,7 +59,7 @@
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                                     </div>
                                     <div class="modal-body">
-                                        <form action="/casts/{{ $cast->id }}" method="POST">
+                                        <form action="{{ route('casts.update', ['cast' => $cast]) }}" method="POST">
                                             @method('PATCH')
                                             <div class="form-group">
                                                 <label for="name">ID: </label>
@@ -87,7 +87,7 @@
     <div class="col-sm-4">
         <div class="card">
             <div class="card-body">
-                <form action="casts" method="POST">
+                <form action="{{ route('casts.store') }}" method="POST">
                     <div class="form-group">
                         <label for="name">New Cast:</label>
                         <input type="text" name="name" id="" class="form-control">

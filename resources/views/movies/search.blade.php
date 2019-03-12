@@ -5,7 +5,7 @@
 <h4 class="card-title">Search Movies </h4>
 <p class="card-text">Search and find movies...</p>
 
-<form class="mb-3" action="/search" method="post">
+<form class="mb-3" action="{{ route('movies.find') }}" method="post">
     <div class="row">
         <div class="col-sm-7">
             <div class="form-group">

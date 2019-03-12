@@ -20,8 +20,9 @@ Route::get('movies/{movie}', 'MoviesController@show');
 Route::delete('movies/{movie}', 'MoviesController@destroy');
 Route::get('movies/{movie}/edit', 'MoviesController@edit');
 Route::patch('movies/{movie}', 'MoviesController@update');
+
 Route::get('search', 'MoviesController@search');
-Route::post('search', 'MoviesController@find');
+Route::post('search', 'MoviesController@find')->name('movies.find');
 
 Route::get('genres', 'GenresController@index');
 Route::post('genres', 'GenresController@store');
@@ -38,7 +39,11 @@ Route::post('casts', 'CastsController@store');
 Route::patch('casts/{cast}', 'CastsController@update');
 Route::delete('casts/{cast}', 'CastsController@destroy');
 
-Route::get('movies/demo', 'MoviesController@demo');
+// to create route names automatically
+Route::resource('movies', 'MoviesController');
+Route::resource('genres', 'GenresController');
+Route::resource('casts', 'CastsController');
+Route::resource('langs', 'LangsController');
 
 Auth::routes();
 

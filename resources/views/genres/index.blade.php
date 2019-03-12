@@ -37,7 +37,7 @@
                                     <div class="modal-body">
                                         <p>Are you sure want to delete "{{ $genre->name }}"?</p>
 
-                                        <form action="/genres/{{ $genre->id }}" method="POST">
+                                        <form action="{{ route('genres.destroy', ['genre' => $genre]) }}" method="POST">
                                             @method('DELETE')
                                                 <label for="name">ID: {{ $genre->id }}</label><br>
                                                 <label for="name">Name: {{ $genre->name }}</label>
@@ -59,7 +59,7 @@
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                                     </div>
                                     <div class="modal-body">
-                                        <form action="/genres/{{ $genre->id }}" method="POST">
+                                        <form action="{{ route('genres.update', ['genre' => $genre]) }}" method="POST">
                                             @method('PATCH')
                                             <div class="form-group">
                                                 <label for="name">ID: </label>
@@ -87,7 +87,7 @@
     <div class="col-sm-4">
         <div class="card">
             <div class="card-body">
-                <form action="genres" method="POST">
+                <form action="{{ route('genres.store') }}" method="POST">
                     <div class="form-group">
                         <label for="name">New Genre:</label>
                         <input type="text" name="name" id="" class="form-control">

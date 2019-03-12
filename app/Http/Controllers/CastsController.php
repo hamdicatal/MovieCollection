@@ -38,7 +38,7 @@ class CastsController extends Controller
         //
     }
 
-    public function update(Request $request, Genre $cast)
+    public function update(Request $request, Cast $cast)
     {
         $cast->update($this->validateRequest());
         return redirect('casts');

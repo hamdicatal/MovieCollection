@@ -12,7 +12,7 @@
 </div>
 @endif
 
-<form action="/movies/{{ $movie->id }}" method="post" enctype="multipart/form-data">
+<form action="{{ route('movies.update', ['movie' => $movie]) }}" method="post" enctype="multipart/form-data">
     @method('PATCH')
 
     <div class="card-group">

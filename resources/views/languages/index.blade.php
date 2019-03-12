@@ -37,7 +37,7 @@
                                     <div class="modal-body">
                                         <p>Are you sure want to delete "{{ $lang->name }}"?</p>
 
-                                        <form action="/languages/{{ $lang->id }}" method="POST">
+                                        <form action="{{ route('langs.destroy', ['lang' => $lang]) }}" method="POST">
                                             @method('DELETE')
                                                 <label for="name">ID: {{ $lang->id }}</label><br>
                                                 <label for="name">Name: {{ $lang->name }}</label>
@@ -59,7 +59,7 @@
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                                     </div>
                                     <div class="modal-body">
-                                        <form action="/languages/{{ $lang->id }}" method="POST">
+                                        <form action="{{ route('langs.update', ['lang' => $lang]) }}" method="POST">
                                             @method('PATCH')
                                             <div class="form-group">
                                                 <label for="name">ID: </label>
@@ -87,7 +87,7 @@
     <div class="col-sm-4">
         <div class="card">
             <div class="card-body">
-                <form action="languages" method="POST">
+                <form action="{{ route('langs.store') }}" method="POST">
                     <div class="form-group">
                         <label for="name">New Language:</label>
                         <input type="text" name="name" id="" class="form-control">

@@ -12,7 +12,7 @@
     </div>
 @endif
 
-<form action="/movies" method="post" enctype="multipart/form-data">
+<form action="{{ route('movies.store') }}" method="post" enctype="multipart/form-data">
 
     <div class="card-group">
             <div class="card bg-default">
