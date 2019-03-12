@@ -10,6 +10,9 @@ use App\Lang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
+// for creating empty collection(used is search function)
+use Illuminate\Database\Eloquent\Collection;
+
 class MoviesController extends Controller
 {
     public function index()
@@ -48,7 +51,7 @@ class MoviesController extends Controller
         $movie->langs()->attach($langs);
         $movie->casts()->attach($casts);
 
-        return redirect('/movies');
+        return redirect('/movies')->with('message', 'Movie successfully added to collection.');
     }
 
     public function show(Movie $movie)
@@ -93,7 +96,7 @@ class MoviesController extends Controller
         $movie->langs()->attach($langs);
         $movie->casts()->attach($casts);
 
-        return redirect('movies/' . $movie->id);
+        return redirect('movies/' . $movie->id)->with('message', 'Movie details successfully updated.');
     }
 
     public function destroy(Movie $movie)
@@ -102,7 +105,7 @@ class MoviesController extends Controller
         $movie->langs()->detach();
         $movie->delete();
 
-        return redirect('movies');
+        return redirect('movies')->with('message', 'Movie successfully deleted from collection.');
     }
 
     public function search(){
@@ -124,8 +127,9 @@ class MoviesController extends Controller
             $casts = Cast::where('name', 'like', '%'.$search.'%')->get();
 
             if(count($casts) > 0) {
+                $movies = new Collection;
                 foreach($casts as $cast) {
-                    $movies->merge($cast->movies);
+                    $movies = $movies->merge($cast->movies);
                 }
             }
 
@@ -135,13 +139,14 @@ class MoviesController extends Controller
         if($filter == 'genre') {
             $genres = Genre::where('name', 'like', '%'.$search.'%')->get();
 
-            if(count($genres) > 0) {
-                foreach($genres as $genre) {
-                    $movies->merge($genre->movies);
+            if(count($genres) > 0){
+                $movies = new Collection;
+                foreach ($genres as $genre) {
+                    $movies = $movies->merge($genre->movies);
                 }
             }
 
-            else   $movies = [];
+            else $movies = [];
         }
 
         return view('movies/search', compact('movies', 'search'));

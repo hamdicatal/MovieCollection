@@ -13,11 +13,20 @@
                 <i class="fa fa-trash" aria-hidden="true"></i> Delete Movie
             </a>
         </h4>
+
+        @if (session()->has('message'))
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>Success!</strong> {{ session()->get('message') }}
+        </div>
+        @endif
+
         <p class="card-text"><strong>Genre:</strong> {{ $movie->genre->name }}<br>
             <strong>Director:</strong> {{ $movie->director }} <br>
             <strong>Cast:</strong> {{ $movie->casts->implode('name', ', ') }}<br>
             <strong>Languages:</strong> {{ $movie->langs->implode('name', ', ') }}<br>
             <strong>Description:</strong> {{ $movie->description }}</p>
+
     </div>
 </div>
 
@@ -27,7 +36,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Delete</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
             </div>
@@ -36,8 +45,7 @@
             </div>
             <div class="modal-footer">
                 <form action="/movies/{{ $movie->id }}" method="POST">
-                    @method('DELETE')
-                    @csrf
+                    @method('DELETE') @csrf
                     <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

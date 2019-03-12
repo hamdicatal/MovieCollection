@@ -63,8 +63,7 @@
 
                     <div id="addedCast">
                         @foreach ($movie->casts as $cast)
-                        <label><input type="hidden" name="casts[]" value="{{ $cast->id }}">{{ $cast->name }} <i class="fa fa-times mr-2" aria-hidden="true"></i></label>
-                        @endforeach
+                        <label><input type="hidden" name="casts[]" value="{{ $cast->id }}">{{ $cast->name }} <i class="fa fa-times mr-2" aria-hidden="true"></i></label>                        @endforeach
                     </div>
 
                 </div>
@@ -73,11 +72,8 @@
                     <label for="language">Language Options:</label>
                     <div>
                         @foreach ($movie->langs as $lang)
-                        <label class="checkbox-inline mr-2"><input type="checkbox" name="langs[]" class="mr-1" value="{{ $lang->id }}" checked>{{ $lang->name }}</label>
-                        @endforeach
-                        @foreach ($langs as $lang)
-                        <label class="checkbox-inline mr-2"><input type="checkbox" name="langs[]" class="mr-1" value="{{ $lang->id }}">{{ $lang->name }}</label>
-                        @endforeach
+                        <label class="checkbox-inline mr-2"><input type="checkbox" name="langs[]" class="mr-1" value="{{ $lang->id }}" checked>{{ $lang->name }}</label>                        @endforeach @foreach ($langs as $lang)
+                        <label class="checkbox-inline mr-2"><input type="checkbox" name="langs[]" class="mr-1" value="{{ $lang->id }}">{{ $lang->name }}</label>                        @endforeach
                     </div>
                 </div>
                 <hr>
@@ -95,7 +91,7 @@
     @csrf
 
 
-    <button type="submit" name="" id="" class="btn btn-success btn-block mt-2">Add Movie to Collection</button>
+    <button type="submit" name="" id="" class="btn btn-success btn-block mt-2">Save Changes</button>
 </form>
 @endsection
 
