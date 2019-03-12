@@ -15,6 +15,10 @@ use Illuminate\Database\Eloquent\Collection;
 
 class MoviesController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $movies = Movie::all();
