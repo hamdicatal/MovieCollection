@@ -24,12 +24,12 @@ Kurulumdan önce, sistemin düzgün çalışabilmesi için MySQL veritabanının
 
 3. İçe aktarma işleminden sonra, ana dizindeki `.env.example` isimli dosyada veritabanı bilgileri düzenlenip, `.env` olarak kaydedilmelidir.
 
-    DB_CONNECTION=mysql
-    DB_HOST=127.0.0.1
-    DB_PORT=3306
-    DB_DATABASE=dbname
-    DB_USERNAME=dbuser
-    DB_PASSWORD=dbpass
+>     DB_CONNECTION=mysql
+>     DB_HOST=127.0.0.1
+>     DB_PORT=3306
+>     DB_DATABASE=dbname
+>     DB_USERNAME=dbuser
+>     DB_PASSWORD=dbpass
 
 **Kurulum:**
 
