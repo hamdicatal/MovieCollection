@@ -2,10 +2,10 @@
 -- version 4.6.6deb5
 -- https://www.phpmyadmin.net/
 --
--- Anamakine: localhost
--- Üretim Zamanı: 13 Mar 2019, 18:30:01
--- Sunucu sürümü: 5.7.25-0ubuntu0.18.04.2
--- PHP Sürümü: 7.2.15-0ubuntu0.18.04.1
+-- Host: localhost
+-- Generation Time: Mar 14, 2019 at 12:33 AM
+-- Server version: 5.7.25-0ubuntu0.18.04.2
+-- PHP Version: 7.2.15-0ubuntu0.18.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Veritabanı: `moviecollection`
+-- Database: `moviecollection`
 --
 
 -- --------------------------------------------------------
 
 --
--- Tablo için tablo yapısı `casts`
+-- Table structure for table `casts`
 --
 
 CREATE TABLE `casts` (
@@ -34,7 +34,7 @@ CREATE TABLE `casts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Tablo döküm verisi `casts`
+-- Dumping data for table `casts`
 --
 
 INSERT INTO `casts` (`id`, `name`, `created_at`, `updated_at`) VALUES
@@ -48,7 +48,7 @@ INSERT INTO `casts` (`id`, `name`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tablo için tablo yapısı `cast_movie`
+-- Table structure for table `cast_movie`
 --
 
 CREATE TABLE `cast_movie` (
@@ -60,7 +60,7 @@ CREATE TABLE `cast_movie` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Tablo döküm verisi `cast_movie`
+-- Dumping data for table `cast_movie`
 --
 
 INSERT INTO `cast_movie` (`id`, `movie_id`, `cast_id`, `created_at`, `updated_at`) VALUES
@@ -76,7 +76,7 @@ INSERT INTO `cast_movie` (`id`, `movie_id`, `cast_id`, `created_at`, `updated_at
 -- --------------------------------------------------------
 
 --
--- Tablo için tablo yapısı `genres`
+-- Table structure for table `genres`
 --
 
 CREATE TABLE `genres` (
@@ -87,7 +87,7 @@ CREATE TABLE `genres` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Tablo döküm verisi `genres`
+-- Dumping data for table `genres`
 --
 
 INSERT INTO `genres` (`id`, `name`, `created_at`, `updated_at`) VALUES
@@ -102,7 +102,7 @@ INSERT INTO `genres` (`id`, `name`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tablo için tablo yapısı `langs`
+-- Table structure for table `langs`
 --
 
 CREATE TABLE `langs` (
@@ -113,7 +113,7 @@ CREATE TABLE `langs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Tablo döküm verisi `langs`
+-- Dumping data for table `langs`
 --
 
 INSERT INTO `langs` (`id`, `name`, `created_at`, `updated_at`) VALUES
@@ -124,7 +124,7 @@ INSERT INTO `langs` (`id`, `name`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tablo için tablo yapısı `lang_movie`
+-- Table structure for table `lang_movie`
 --
 
 CREATE TABLE `lang_movie` (
@@ -136,7 +136,7 @@ CREATE TABLE `lang_movie` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Tablo döküm verisi `lang_movie`
+-- Dumping data for table `lang_movie`
 --
 
 INSERT INTO `lang_movie` (`id`, `movie_id`, `lang_id`, `created_at`, `updated_at`) VALUES
@@ -166,7 +166,7 @@ INSERT INTO `lang_movie` (`id`, `movie_id`, `lang_id`, `created_at`, `updated_at
 -- --------------------------------------------------------
 
 --
--- Tablo için tablo yapısı `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -176,7 +176,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Tablo döküm verisi `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -187,12 +187,17 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (5, '2019_03_06_081841_create_casts_table', 1),
 (6, '2019_03_06_081906_create_langs_table', 1),
 (7, '2019_03_06_084556_create_movie_cast_pivot_table', 1),
-(8, '2019_03_06_084624_create_movie_langs_pivot_table', 1);
+(8, '2019_03_06_084624_create_movie_langs_pivot_table', 1),
+(9, '2019_03_13_192854_create_roles_table', 2),
+(10, '2019_03_13_193327_create_role_user_table', 2),
+(11, '2019_03_13_194151_create_roles_table', 3),
+(12, '2019_03_13_194515_create_user_role_pivot_table', 3),
+(13, '2019_03_13_200352_create_role_user_table', 4);
 
 -- --------------------------------------------------------
 
 --
--- Tablo için tablo yapısı `movies`
+-- Table structure for table `movies`
 --
 
 CREATE TABLE `movies` (
@@ -208,7 +213,7 @@ CREATE TABLE `movies` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Tablo döküm verisi `movies`
+-- Dumping data for table `movies`
 --
 
 INSERT INTO `movies` (`id`, `title`, `year`, `genre_id`, `director`, `description`, `poster`, `created_at`, `updated_at`) VALUES
@@ -220,7 +225,7 @@ INSERT INTO `movies` (`id`, `title`, `year`, `genre_id`, `director`, `descriptio
 -- --------------------------------------------------------
 
 --
--- Tablo için tablo yapısı `password_resets`
+-- Table structure for table `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -232,7 +237,50 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Tablo için tablo yapısı `users`
+-- Table structure for table `roles`
+--
+
+CREATE TABLE `roles` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `roles`
+--
+
+INSERT INTO `roles` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'admin', '2019-03-13 18:28:38', '2019-03-13 18:28:38'),
+(2, 'user ', '2019-03-13 18:28:38', '2019-03-13 18:28:38');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `role_user`
+--
+
+CREATE TABLE `role_user` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `role_id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `role_user`
+--
+
+INSERT INTO `role_user` (`id`, `role_id`, `user_id`, `created_at`, `updated_at`) VALUES
+(7, 1, 1, NULL, NULL),
+(8, 2, 2, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -247,113 +295,135 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Tablo döküm verisi `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin@admin.com', NULL, '$2y$10$dvvy5PaVrQnpsgbtKhLNDevT7aQv49TWXfEr1Z.osvlwrQKmSwX6i', 'tItkTGznxNSYIcl6mKD0z2xpzSIVl291FVwhUQadWxgAkfYMnwM8WPpe7DNd', '2019-03-12 17:13:53', '2019-03-12 17:13:53'),
-(2, 'user', 'user@user.com', NULL, '$2y$10$DvSrgKHyxwonQb0rNsA1xuQHcsa2w7YfygoK8E3AeeW9Tg9OQcVW2', NULL, '2019-03-12 17:14:18', '2019-03-12 17:14:18');
+(1, 'admin', 'admin@admin.com', NULL, '$2y$10$vZaH88hjaxOBIaIXnHKKkeBhsoNuoxp/6qaFbg1Ypun21or09Y.Zm', NULL, '2019-03-13 18:28:38', '2019-03-13 18:28:38'),
+(2, 'user', 'user@user.com', NULL, '$2y$10$RYzp2MRIh9Qr7k.wO9TpROTsCoka4j7R/yBMBS3lbwRwNvEfw579S', NULL, '2019-03-13 18:28:38', '2019-03-13 18:28:38');
 
 --
--- Dökümü yapılmış tablolar için indeksler
+-- Indexes for dumped tables
 --
 
 --
--- Tablo için indeksler `casts`
+-- Indexes for table `casts`
 --
 ALTER TABLE `casts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Tablo için indeksler `cast_movie`
+-- Indexes for table `cast_movie`
 --
 ALTER TABLE `cast_movie`
   ADD PRIMARY KEY (`id`);
 
 --
--- Tablo için indeksler `genres`
+-- Indexes for table `genres`
 --
 ALTER TABLE `genres`
   ADD PRIMARY KEY (`id`);
 
 --
--- Tablo için indeksler `langs`
+-- Indexes for table `langs`
 --
 ALTER TABLE `langs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Tablo için indeksler `lang_movie`
+-- Indexes for table `lang_movie`
 --
 ALTER TABLE `lang_movie`
   ADD PRIMARY KEY (`id`);
 
 --
--- Tablo için indeksler `migrations`
+-- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Tablo için indeksler `movies`
+-- Indexes for table `movies`
 --
 ALTER TABLE `movies`
   ADD PRIMARY KEY (`id`);
 
 --
--- Tablo için indeksler `password_resets`
+-- Indexes for table `password_resets`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Tablo için indeksler `users`
+-- Indexes for table `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `role_user`
+--
+ALTER TABLE `role_user`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- Dökümü yapılmış tablolar için AUTO_INCREMENT değeri
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- Tablo için AUTO_INCREMENT değeri `casts`
+-- AUTO_INCREMENT for table `casts`
 --
 ALTER TABLE `casts`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
--- Tablo için AUTO_INCREMENT değeri `cast_movie`
+-- AUTO_INCREMENT for table `cast_movie`
 --
 ALTER TABLE `cast_movie`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
 --
--- Tablo için AUTO_INCREMENT değeri `genres`
+-- AUTO_INCREMENT for table `genres`
 --
 ALTER TABLE `genres`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
--- Tablo için AUTO_INCREMENT değeri `langs`
+-- AUTO_INCREMENT for table `langs`
 --
 ALTER TABLE `langs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
--- Tablo için AUTO_INCREMENT değeri `lang_movie`
+-- AUTO_INCREMENT for table `lang_movie`
 --
 ALTER TABLE `lang_movie`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 --
--- Tablo için AUTO_INCREMENT değeri `migrations`
+-- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
--- Tablo için AUTO_INCREMENT değeri `movies`
+-- AUTO_INCREMENT for table `movies`
 --
 ALTER TABLE `movies`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
--- Tablo için AUTO_INCREMENT değeri `users`
+-- AUTO_INCREMENT for table `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `role_user`
+--
+ALTER TABLE `role_user`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
