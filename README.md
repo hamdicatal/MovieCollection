@@ -24,12 +24,12 @@ Kurulumdan önce, sistemin düzgün çalışabilmesi için MySQL veritabanının
 
 3. İçe aktarma işleminden sonra, ana dizindeki `.env.example` isimli dosyada veritabanı bilgileri düzenlenip, `.env` olarak kaydedilmelidir.
 
->     DB_CONNECTION=mysql
->     DB_HOST=127.0.0.1
->     DB_PORT=3306
->     DB_DATABASE=dbname
->     DB_USERNAME=dbuser
->     DB_PASSWORD=dbpass
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=dbname
+    DB_USERNAME=dbuser
+    DB_PASSWORD=dbpass
 
 **Kurulum:**
 
@@ -48,7 +48,7 @@ Bu işlemlerden sonra domain adresi ile veya local'de çalışılıyorsa `localh
     admin@admin.com - admin123
     user@user.com - user1234
 
-Kullanıcılar database seeder aracılığıyla test amaçlı oluşturulmuştur. Seed işlemi her çalıştırıldığında `Users` ve `Roles` tabloları temizlenmektedir. Seed işlemini aşağıdaki komut ile çalıştırılabilir.
+Kullanıcılar database seeder aracılığıyla test amaçlı oluşturulmuştur. Seed işlemi her çalıştırıldığında `Users` ve `Roles` tabloları temizlenmektedir. Seed işlemi aşağıdaki komut ile çalıştırılabilir.
 
     php artisan db:seed
 
