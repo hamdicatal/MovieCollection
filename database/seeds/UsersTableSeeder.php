@@ -15,7 +15,13 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        $allUsers = User::all();
         User::truncate(); // delete all datas from Users table when UsersTableSeeder run
+
+        // detach all relations
+        foreach ($allUsers as $user) {
+            $user->roles()->detach();
+        }
 
         // get admin and user roles from Roles table
         $adminRole = Role::where('name', 'admin')->first();
