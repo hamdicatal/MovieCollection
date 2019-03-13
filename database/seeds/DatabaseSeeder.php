@@ -13,5 +13,6 @@ class DatabaseSeeder extends Seeder
     {
         // for running easily with 'php artisan db:seed' command
         $this->call(RolesTableSeeder::class);
+        $this->call(UsersTableSeeder::class);
     }
 }

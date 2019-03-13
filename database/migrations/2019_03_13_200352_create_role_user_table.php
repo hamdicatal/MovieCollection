@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserRolePivotTable extends Migration
+class CreateRoleUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateUserRolePivotTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_role_pivot', function (Blueprint $table) {
+        Schema::create('role_user', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedInteger('user_id');
             $table->unsignedInteger('role_id');
+            $table->unsignedInteger('user_id');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateUserRolePivotTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_role_pivot');
+        Schema::dropIfExists('role_user');
     }
 }
