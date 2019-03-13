@@ -43,7 +43,13 @@ Bu işlemlerden sonra domain adresi ile veya local'de çalışılıyorsa `localh
 
 **Ek Bilgiler:**
 
-İçerikleri görebilmek ve içerik ekleyebilmek için kullanıcı girişi yapılması gerekmektedir. Demo amaçlı veritabanındaki iki farklı kullanıcı bulunmaktadır. Şuan için hiçbir yetki farkı bulunmamaktadır. Her iki kullanıcı da sisteme giriş yapıp, içeriklerle alakalı işlemleri yapabilmektedir.
+İçerikleri görebilmek ve içerik ekleyebilmek için kullanıcı girişi yapılması gerekmektedir. Demo amaçlı veritabanındaki iki farklı kullanıcı bulunmaktadır. User kullanıcısı içerikleri görüntüleyebilir ve ekleyebilir. Fakat düzenleme ve silme işlemi yapamaz. Admin kullanıcısı sistem üzerinde tüm işlemleri gerçekleştirme yetkisine sahiptir.
 
     admin@admin.com - admin123
     user@user.com - user1234
+
+Kullanıcılar database seeder aracılığıyla test amaçlı oluşturulmuştur. Seed işlemi her çalıştırıldığında `Users` ve `Roles` tabloları temizlenmektedir. Seed işlemini aşağıdaki komut ile çalıştırılabilir.
+
+    php artisan db:seed
+
+Test amaçlı daha fazla veri eklemek istenirse `UsersTableSeeder.php` ve `RolesTableSeeder.php` dosyaları düzenlenebilir.
