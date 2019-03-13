@@ -48,6 +48,10 @@ class MoviesController extends Controller
             $movie->poster = 'posters/'.$imageName;
             $movie->save();
         }
+        else{
+            $movie->poster = 'posters/default.png';
+            $movie->save();
+        }
 
         // add langs, genres to pivot tables
         $langs = Lang::find($request->langs);
@@ -81,7 +85,9 @@ class MoviesController extends Controller
         if ($request->hasFile('poster')) {
             // delete old poster image from disk
             if(File::exists(public_path($movie->poster))) {
-                File::delete(public_path($movie->poster));
+                if($movie->poster != 'posters/default.png'){
+                    File::delete(public_path($movie->poster));
+                }
             }
 
             // save new image to disk
@@ -156,6 +162,7 @@ class MoviesController extends Controller
         return view('movies/search', compact('movies', 'search'));
     }
 
+    // for validation of form request
     private function validateRequest(){
         return request()->validate([
             'title' => 'required',

@@ -5,6 +5,14 @@
 <div class="row">
     <div class="col-sm-3"><img src="{{ URL::asset($movie->poster) }}" width="200px"></div>
     <div class="col-sm-9">
+        @if (session()->has('message'))
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>Success!</strong> {{ session()->get('message') }}
+        </div>
+        @endif
+
+
         <h4 class="card-title">{{ $movie->title }} ({{ $movie->year }})
             <a class="btn btn-success btn-sm" style="float:right" href="/movies/{{ $movie->id }}/edit">
                 <i class="fa fa-edit" aria-hidden="true"></i> Edit Details
@@ -13,13 +21,6 @@
                 <i class="fa fa-trash" aria-hidden="true"></i> Delete Movie
             </a>
         </h4>
-
-        @if (session()->has('message'))
-        <div class="alert alert-success alert-dismissible">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <strong>Success!</strong> {{ session()->get('message') }}
-        </div>
-        @endif
 
         <p class="card-text"><strong>Genre:</strong> {{ $movie->genre->name }}<br>
             <strong>Director:</strong> {{ $movie->director }} <br>

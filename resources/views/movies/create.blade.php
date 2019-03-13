@@ -74,7 +74,7 @@
                         <input type="file" id="poster" name="poster" class="form-control" accept="image/*" onchange="previewPoster(event)">
                         <br>
                     </div>
-                    <img src="{{ URL::asset('posters/default.jpeg') }}" id="img-thumbnail" class="img-thumbnail" width="150px">
+                    <img src="{{ URL::asset('posters/default.png') }}" id="img-thumbnail" class="img-thumbnail" width="150px">
 
                 </div>
             </div>
