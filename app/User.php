@@ -36,4 +36,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // for adding roles to user - admin, editor, user etc.
+    public function roles() {
+        return $this->belongsToMany(Role::class);
+    }
 }
